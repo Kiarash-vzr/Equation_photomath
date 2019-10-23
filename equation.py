@@ -2,8 +2,11 @@ n = input()
 # defs
 def alamat_gozari(e):
     for i in range(len(e)):
-        if (e[i][0] != '+' and e[i][0] != '-') and e[i] != '=':
+        if (e[i][0] != '+' and e[i][0] != '-' and e[i][0] != '*' and e[i][0] != '/')\
+        and e[i] != '=':
             e[i] = '+' + e[i]
+        #else:
+    
     return e
 
 def make_two_sides(e):
@@ -38,14 +41,18 @@ def sum_of_sides(e1):
         e1[1][i] = int(e1[1][i])
         sum2 += e1[1][i]
     return [sum1 , sum2]
+
+
 # defs </>
 
-e1 = remove_x(n) # index [1] == x index         
+e1 = remove_x(n) # index [1] == x index
 e1 = e1.split()
 e1 = alamat_gozari(e1)
 e1 = make_two_sides(e1)
 
-sum_side1 = sum_of_sides(e1)[0]
+print(e1)
+
+'''sum_side1 = sum_of_sides(e1)[0]
 sum_side2 = sum_of_sides(e1)[1]
 
 
@@ -56,5 +63,5 @@ else:
     sum_side2 = sum_side1 - sum_side2
     sum_side1 = 0
 
-print('x = '+str(sum_side2))
+print('x = '+str(sum_side2))'''
     
