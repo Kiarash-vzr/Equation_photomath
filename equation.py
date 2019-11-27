@@ -36,14 +36,50 @@ def make_two_sides(e1):#make two sides for e1 by '=' , return two sides
     #making two sides by '='
     return [side_1,side_2]
 
-def bracket_identification(e1):#return two lists of bracket indexes (b1, b2)
-    # b1 = indexes of "("
-    # b2 = indexes of ")"
-    b1 = []
-    b2 = []
-    #for i in range(len(e1)):
-    #if 
+'''def bracket_identification(e1):#return e1 as e
+    #e = replacing e1's brackets as lists
+    e = []
+    bracket_exists = False
+    for i in range(len(e1)):#chek if e1 has brackets
+        if e1[i] == '(' and e1[i] == ')':
+            bracket_exists = True
 
+
+
+            
+    if bracket_exists = False:# final layer
+        return (e1)
+    
+    else:# layering
+        i = 0
+        b_counter = 0
+        inside_bracket = False
+        bracket_list = []
+        while i < len(a):
+            if e1[i] != '(' and e1[i] != ')':
+                e.append(e1[i])
+                i += 1
+                
+            elif e1[i] == '(':#beggining of bracket
+                i += 1
+                b_counter += 1
+                inside_bracket = True
+                
+            elif e1[i] == ')':
+                i += 1
+                b_counter -= 1
+                
+            if inside_bracket == True and e1[i] == ')' and b_counter == 0:   
+                #ending of one bracket
+                #adding bracket list to e
+                e.append
+                inside_bracket = False
+                bracket_list = []
+            if b_counter < 0:
+                break'''
+        
+            
+        
 '''def remove_and_save_x(e1):# making a new equation without x
     
     new_e1 = [e1[0],[]]
@@ -141,15 +177,19 @@ def solve_polynomial_phrase(e1, layer_counter):# solving without ()
         print(e1, 'round 4')
         return (e1)
     
-def solve_algebra_phrase(e1, layer_counter):# with () using "solve_polynomial_phrase"
+'''def solve_algebra_phrase(e1, layer_counter):# with () using "solve_polynomial_phrase"
     e = []
     b_counter = 0
-    for i in range(len(e1)):
-        if ei[i] != '(' and e1[i] != ')':
+    i = 0
+    while :
+        if e1[i] != '(' and e1[i] != ')':
             e.append(e1[i])
+            i += 1
+        elif e1[i]
+        
  
             
-    return
+    return'''
     
 print(solve_polynomial_phrase(e1[1], 1))
 e1[1] = solve_polynomial_phrase(e1[1], 1)
