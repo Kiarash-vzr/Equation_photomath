@@ -30,17 +30,12 @@ def solve_minus_times_sth(e1):#return new e1 as e
     e = []
     for i in range(len(e1)):
         print(i,e1[i])
-        if e1[i-1] != '-' and e1[i] != '(':
-            if e1[i][0] == '-':
-                e.append('-1')
-                e.append('*')
-                e.append(e1[i][1:])
-            e.append(e1[i])
+        if e1[i][0] == '-' and e1[i] != '-':
+            e.append('-1')
+            e.append('*')
+            e.append(e1[i][1:])
         else:
-            if e[i-1] == '-':
-                e[i-1] = '-1'
-                e.append('*')
-                e.append(ei[i])
+            e.append(e1[i])
     return e
             
 # defs </>
@@ -96,7 +91,7 @@ def Solve_polynomial_phrase(e1, layer_counter):# solving without ()
 
 
 
-def Solve_algebra_phrase(e1):#solve algebra phrase (with brackets)\
+def Solve_brackets(e1):#solve algebra phrase (with brackets)\
     # \using Solve_polynomial_phrase 
     # e = replacing e1's brackets as their answers
     # bracket_list = list of a bracket
@@ -143,26 +138,31 @@ def Solve_algebra_phrase(e1):#solve algebra phrase (with brackets)\
                 #adding bracket list to e
                 #caling the function for the bracket
                 bracket_list = bracket_list[:-1]
-                e.append (Solve_algebra_phrase(bracket_list))
+                e.append (Solve_brackets(bracket_list))
                 inside_bracket = False
                 bracket_list = []
             if b_counter < 0:# if ")"s more than "("s
                 return ("false equation")
         if b_counter != 0:# if "("s are more than ")"s
             return ("false equation")
-                
-    return(Solve_polynomial_phrase(e, 1))
+            
+    return(e)
 
 
 
 
-#def Find_coefficient_of_variables(e1):
+def Find_coefficient_of_variables(e1):
+    e1 = Solve_brackets(e1)
+    split_e1 = split_list_by(e1, '-', '+')
+    print(split_e1)
+
+
     
 e1 = n
 e1 = e1.split()
-e1 = alamat_gozari(e1)
 e1 = solve_minus_times_sth(e1)
+print(e1)
+e1 = alamat_gozari(e1)
 print (e1)
 e1 = make_two_sides(e1)
-    
-print(Solve_algebra_phrase(e1[1]))
+Find_coefficient_of_variables(e1[1])
